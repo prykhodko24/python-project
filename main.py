@@ -7,28 +7,27 @@ from datetime import datetime
 
 
 # Loading datasets
-in_time = pd.read_csv('in_time.csv')
-manager_survey_data = pd.read_csv('manager_survey_data.csv')
-employee_survey_data = pd.read_csv('employee_survey_data.csv')
-data_dictionary= pd.read_excel('data_dictionary.xlsx')
-out_time = pd.read_csv('out_time.csv')
-general_data = pd.read_csv('general_data.csv')
-
+in_time = pd.read_csv('soucre/in_time.csv')
+manager_survey_data = pd.read_csv('soucre/manager_survey_data.csv')
+employee_survey_data = pd.read_csv('soucre/employee_survey_data.csv')
+out_time = pd.read_csv('soucre/out_time.csv')
+general_data = pd.read_csv('soucre/general_data.csv')
+data_dictionary= pd.read_excel('soucre/data_dictionary.xlsx', engine='openpyxl')
 # checking dimensions of each set
-in_time.shape
-manager_survey_data.shape
-employee_survey_data.shape
-data_dictionary.shape
-out_time.shape
-general_data.shape
+print(in_time.shape)
+print(manager_survey_data.shape)
+print(employee_survey_data.shape)
+print(data_dictionary.shape)
+print(out_time.shape)
+print(general_data.shape)
 
 # Previewing data
-in_time.head()
-manager_survey_data.head()
-employee_survey_data.head()
-data_dictionary.head()
-out_time.head()
-general_data.head()
+print(in_time.head())
+print(manager_survey_data.head())
+print(employee_survey_data.head())
+print(data_dictionary.head())
+print(out_time.head())
+print(general_data.head())
 
 
 
@@ -58,5 +57,3 @@ time['Total days'] = time.iloc[:, 1:261].count(axis=1)
 time['Total hours']=time.iloc[:, 1:261].sum(axis=1)
 
 time['Unnamed: 0'] = range(1, len(time)+1)
-
-
